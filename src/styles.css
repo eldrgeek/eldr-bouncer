@@ -2,3 +2,31 @@
   font-family: sans-serif;
   text-align: center;
 }
+.sv_q_radiogroup_label {
+  float: left;
+}
+
+.sv_qcbc {
+  text-align: left;
+}
+
+.sv_qcbx {
+  text-align: left;
+}
+/* .sv_q_checkbox_label {
+  float: left;
+} */
+.sv_q_radiogroup {
+  padding-left: 40px;
+}
+.sv_q_checkbox_label {
+  padding-left: 40px;
+  float: left;
+}
+.sv_q_title {
+  text-align: left;
+}
+strong {
+  /* font-weight: bold; */
+  color: black;
+}

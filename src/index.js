@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Survey from "./Surveys/CarSurvey";
 
 import "./styles.css";
 import styled, { keyframes } from "styled-components";
@@ -25,11 +26,10 @@ let hideListener = () => {
 };
 
 let Bouncer = (props, children) => {
-  let [inOut, setInOut] = React.useState("out");
+  let [inOut, setInOut] = React.useState("in");
 
   let setRef = element => {
     if (bouncyElement === null) {
-      console.log("setBounce");
       bouncyElement = element;
     }
     if (inOut === "out") {
@@ -39,16 +39,26 @@ let Bouncer = (props, children) => {
     }
     // // bouncyElement.addEventListener("animationend", listener);
   };
-  console.log("setTimeout", ++counter);
-  setTimeout(() => {
-    console.log("in timeout", ++counter);
-    bouncyElement.style.visibility = "visible";
-    if (inOut === "in") {
-      setInOut("out");
-    } else {
-      setInOut("in");
-    }
-  }, 2000);
+
+  // let timeOutInterval = inOut === "in" ? 4000 : 1000
+
+  // console.log("setTimeout", ++counter);
+  // setTimeout(() => {
+  //   console.log("in timeout", ++counter);
+  //   bouncyElement.style.visibility = "visible";
+  //   if (inOut === "in") {
+  //     setInOut("out");
+  //   } else {
+  //     setInOut("in");
+  //   }
+  // }, timeOutInterval);
+  const bounceIn = () => {
+    setInOut("in");
+  };
+
+  const bounceOut = () => {
+    setInOut("out");
+  };
 
   const bounceAnimation = keyframes`${
     inOut === "in" ? bounceInDown : bounceOutUp
@@ -69,9 +79,16 @@ let Bouncer = (props, children) => {
 };
 
 let App = () => {
+  let inOut = "in";
+  let bounceIn = () => {
+    inOut = "in";
+  };
+  let bounceOut = () => {
+    inOut = "out";
+  };
   return (
-    <Bouncer>
-      <h1>Hello CodeSandbox </h1>
+    <Bouncer inOut={inOut}>
+      <Survey bounceIn={bounceIn} bounceOut={bounceOut} />
     </Bouncer>
   );
 };

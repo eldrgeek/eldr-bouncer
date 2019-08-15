@@ -538,7 +538,7 @@ survey.onCurrentPageChanging.add((sender, options) => {
     doAnimation = false;
     sender.currentPage = options.newCurrentPage;
     doAnimation = true;
-  }, 800);
+  }, 500);
 
   bounceOut();
 });

@@ -10,6 +10,7 @@
     "jQuery": "1.7.4",
     "jquery-bar-rating": "1.2.2",
     "jquery-ui": "1.12.1",
+    "location": "0.0.1",
     "nouislider": "14.0.2",
     "react": "16.8.6",
     "react-animations": "1.0.0",

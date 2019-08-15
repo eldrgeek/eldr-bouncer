@@ -62,7 +62,7 @@ let Bouncer = (props, children) => {
         ref={setRef}
         id="bouncydiv"
         className="App"
-        duration="1s"
+        duration="500ms"
         animation={bounceAnimation}
       >
         {props.children}

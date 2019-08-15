@@ -26,12 +26,12 @@ let hideListener = () => {
 };
 
 let Bouncer = (props, children) => {
-  let [inOut, setInOut] = React.useState("in");
-
+  let inOut = props.inOut;
   let setRef = element => {
     if (bouncyElement === null) {
       bouncyElement = element;
     }
+    bouncyElement.style.visibility = "visible";
     if (inOut === "out") {
       bouncyElement.addEventListener("animationend", hideListener);
     } else {
@@ -52,13 +52,6 @@ let Bouncer = (props, children) => {
   //     setInOut("in");
   //   }
   // }, timeOutInterval);
-  const bounceIn = () => {
-    setInOut("in");
-  };
-
-  const bounceOut = () => {
-    setInOut("out");
-  };
 
   const bounceAnimation = keyframes`${
     inOut === "in" ? bounceInDown : bounceOutUp
@@ -79,12 +72,12 @@ let Bouncer = (props, children) => {
 };
 
 let App = () => {
-  let inOut = "in";
+  const [inOut, setInOut] = React.useState("in");
   let bounceIn = () => {
-    inOut = "in";
+    setInOut("in");
   };
   let bounceOut = () => {
-    inOut = "out";
+    setInOut("out");
   };
   return (
     <Bouncer inOut={inOut}>

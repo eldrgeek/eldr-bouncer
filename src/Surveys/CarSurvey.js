@@ -141,7 +141,7 @@ allPages.push(connectGood);
 
 allPages.push(
   YesNo(
-    "lackconnection",
+    "installSafety",
     `Do you think car manufacturers should 
 offer a “safety switch” so that owners can
  choose whether 
@@ -171,7 +171,6 @@ in which researchers took remote control
     ]
   )
 );
-// allPages = [];
 
 allPages.push(
   YesNo(
@@ -209,13 +208,76 @@ ead a news story using the term
 
 allPages.push(
   Choices(
-    "newsJeep",
+    "atRisk",
     `Whom do you think
  is at risk if one or more cars were 
  hijacked over the Internet? (Check all that apply)`,
     ["Occupant(s) of hacked cars", "Occupant(s) of other cars", "Pedestrians"]
   )
 );
+
+allPages.push(
+  Choices(
+    "safetyPremium",
+    `When buying a new car, 
+would you pay a premium for a 
+"safety switch" allowing you to 
+choose whether/when to connect your 
+car to the Internet? If so, how much would you be willing to pay?`,
+    [
+      "I would not pay because I don't think it's necessary",
+      "I'd pay up to 10% of the price of the car",
+      "I'd pay, but no more than $1,000",
+      "I'd pay, but no more than $100"
+    ]
+  )
+);
+
+allPages.push(
+  Choices(
+    "safteyAlternative",
+    `When buying a new car, 
+if a safety switch option cost more than 
+you were willing to pay, what would you do?`,
+    ["I would buy a different car", "I would do without it"]
+  )
+);
+
+allPages.push(
+  YesNo(
+    "swayDecision",
+    `When car shopping, would 
+the presence of a "safety switch" allowing you to choose whether/when to connect your
+car to the Internet sway your decision?`
+  )
+);
+
+allPages.push(
+  YesNo(
+    "signPetition",
+    `Would you sign a petition
+ demanding all cars that are currently
+  connected to the internet be disconnected 
+  from the internet?`
+  )
+);
+// allPages = [];
+
+allPages.push(
+  Choices(
+    "newsJeep",
+    `Which of the 
+following concerns you more about Internet-connected cars?`,
+    [
+      "Privacy",
+      "Safety from hackers",
+      "I'm concerned about both",
+      "I'm not concerned about either"
+    ]
+  )
+);
+
+allPages.push(YesNo("newsJeep", ``));
 
 allPages.push(YesNo("newsJeep", ``));
 
@@ -465,9 +527,18 @@ survey.onComplete.add(function(result) {
 
 let bounceIn = null;
 let bounceOut = null;
-survey.onCurrentPageChanging.add(function(sender, options) {
+let doAnimation = true;
+
+survey.onCurrentPageChanging.add((sender, options) => {
   if (!bounceOut) return;
+  if (!doAnimation) return;
   console.log("bounceOut", bounceIn, bounceOut);
+  options.allowChanging = false;
+  setTimeout(() => {
+    doAnimation = false;
+    sender.currentPage = options.newCurrentPage;
+    doAnimation = true;
+  }, 800);
 
   bounceOut();
 });

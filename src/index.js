@@ -13,7 +13,7 @@ const BouncyDiv = styled.div`
 let bouncyElement = null;
 
 const MidDiv = styled.div`
-  top: 300px;
+  top: 50px;
   left: 100px;
   position: absolute;
   height: 00px;

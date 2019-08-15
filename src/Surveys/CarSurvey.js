@@ -14,10 +14,11 @@ import "jquery-ui/themes/base/all.css";
 // import "bootstrap-slider/dist/css/bootstrap-slider.css";
 
 import "jquery-bar-rating/dist/themes/css-stars.css";
-import "jQuery";
+// import "jQuery";
 // import SurveyCreator from "./SurveyCreator";
 // import logo from "./logo.svg";
 import "./DemoSurvey.css";
+import "jquery";
 import "bootstrap/dist/css/bootstrap.css";
 
 import "jquery-ui/themes/base/all.css";
@@ -26,17 +27,18 @@ import "nouislider/distribute/nouislider.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
 import "jquery-bar-rating";
 import "jquery-bar-rating/dist/themes/css-stars.css";
-import "jQuery";
+// import "jQuery";
 import * as widgets from "surveyjs-widgets";
-import "icheck";
-import "icheck/skins/square/blue.css";
 import $ from "jquery";
+// import "icheck";
+// import "icheck/skins/square/blue.css";
+
 window["$"] = window["jQuery"] = $;
 require("icheck");
 const showdown = require("showdown");
 Survey.StylesManager.applyTheme("default");
 
-widgets.icheck(Survey, $);
+// widgets.icheck(Survey, $);
 widgets.select2(Survey, $);
 widgets.inputmask(Survey);
 widgets.jquerybarrating(Survey, $);

@@ -5,7 +5,7 @@ import myCss from "survey-react/survey.css";
 
 // import SurveyCreator from "./SurveyCreator";
 // import logo from "./logo.svg";
-import "./DemoSurvey.css";
+// import "./DemoSurvey.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import "jquery-ui/themes/base/all.css";
@@ -17,7 +17,6 @@ import "jquery-bar-rating/dist/themes/css-stars.css";
 // import "jQuery";
 // import SurveyCreator from "./SurveyCreator";
 // import logo from "./logo.svg";
-import "./DemoSurvey.css";
 import "jquery";
 import "bootstrap/dist/css/bootstrap.css";
 
